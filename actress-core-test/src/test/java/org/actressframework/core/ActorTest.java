@@ -1,15 +1,14 @@
 package org.actressframework.core;
 
-import static com.google.common.collect.Maps.newHashMap;
 import static java.lang.System.currentTimeMillis;
 import static java.lang.Thread.currentThread;
 import static org.actressframework.core.Poller.aPoller;
 import static org.actressframework.core.Sleeper.sleep;
 import static org.fest.assertions.Assertions.assertThat;
 
+import java.util.HashMap;
 import java.util.Map;
 
-import org.actressframework.core.Actor;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -87,7 +86,7 @@ public class ActorTest {
     @Actor
     public class TestActor {
 
-        private Map<String, Integer> callingThreads = newHashMap();
+        private Map<String, Integer> callingThreads = new HashMap<>();
         
         public void callWithoutReturnValueActorThread() {
             augmentInThreadCalls();

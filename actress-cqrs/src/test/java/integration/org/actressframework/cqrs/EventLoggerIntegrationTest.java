@@ -1,12 +1,12 @@
 package integration.org.actressframework.cqrs;
 
-import static org.actressframework.common.Poller.aPoller;
+import static org.actressframework.core.Poller.aPoller;
 import static org.mockito.Mockito.spy;
 import static org.mockito.Mockito.verify;
 
 import javax.inject.Inject;
 
-import org.actressframework.common.Assertion;
+import org.actressframework.core.Assertion;
 import org.actressframework.cqrs.EventBus;
 import org.actressframework.cqrs.EventLogger;
 import org.junit.Before;

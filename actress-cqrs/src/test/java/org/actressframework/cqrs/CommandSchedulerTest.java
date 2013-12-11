@@ -1,8 +1,6 @@
 package org.actressframework.cqrs;
 
 import static java.lang.System.currentTimeMillis;
-import static org.actressframework.common.Poller.aPoller;
-import static org.actressframework.common.Sleeper.sleep;
 import static org.actressframework.cqrs.command.CancelScheduledCommand.cancel;
 import static org.actressframework.cqrs.command.ScheduleAtFixedRateCommand.scheduleAtFixedRate;
 import static org.actressframework.cqrs.command.ScheduleOnceCommand.scheduleOnce;
@@ -11,9 +9,8 @@ import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.verifyZeroInteractions;
 
-import org.actressframework.common.Assertion;
+import org.actressframework.core.Assertion;
 import org.actressframework.cqrs.command.ScheduleCommand;
-import org.actressframework.test.AbstractTest;
 import org.junit.Test;
 import org.mockito.Mock;
 import org.unitils.inject.annotation.InjectIntoByType;

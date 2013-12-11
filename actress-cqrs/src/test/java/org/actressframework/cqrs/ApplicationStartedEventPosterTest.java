@@ -3,7 +3,6 @@ package org.actressframework.cqrs;
 import static org.actressframework.cqrs.events.ApplicationStarted.applicationStarted;
 import static org.mockito.Mockito.verify;
 
-import org.actressframework.test.AbstractTest;
 import org.junit.Test;
 import org.mockito.Mock;
 import org.springframework.context.event.ContextRefreshedEvent;

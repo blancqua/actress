@@ -2,26 +2,29 @@ package org.actressframework.cqrs;
 
 import static com.google.common.collect.Maps.newHashMap;
 import static java.util.concurrent.TimeUnit.MILLISECONDS;
+import static org.actressframework.core.common.Executors.newSingleThreadScheduledExecutor;
 
 import java.util.Map;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ScheduledFuture;
-import java.util.logging.Logger;
 
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import org.actressframework.core.Actor;
 import org.actressframework.cqrs.command.CancelScheduledCommand;
 import org.actressframework.cqrs.command.ScheduleAtFixedRateCommand;
 import org.actressframework.cqrs.command.ScheduleCommand;
 import org.actressframework.cqrs.command.ScheduleOnceCommand;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.google.common.eventbus.Subscribe;
 
 @Named @Actor
 public class CommandScheduler implements CommandHandler {
 
-    private static final Logger LOGGER = getLogger(CommandScheduler.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(CommandScheduler.class);
     private ScheduledExecutorService scheduledExecutor = newSingleThreadScheduledExecutor(CommandScheduler.class.getSimpleName() + "-executor");
     
     @Inject

@@ -10,6 +10,7 @@
 		<module>actress-core</module>
 		<module>actress-test</module>
 		<module>actress-cqrs</module>
+		<module>actress-core-test</module>
 	</modules>
 
 	<properties>
@@ -102,9 +103,9 @@
 				<version>2.6</version>
 			</dependency>
 			<dependency>
-				<groupId>ch.qos.logback</groupId>
-				<artifactId>logback-classic</artifactId>
-				<version>1.0.13</version>
+				<groupId>org.slf4j</groupId>
+				<artifactId>slf4j-api</artifactId>
+				<version>1.7.5</version>
 			</dependency>
 			<dependency>
 				<groupId>com.google.guava</groupId>
@@ -136,7 +137,7 @@
 			</dependency>
 			<dependency>
 				<groupId>${project.groupId}</groupId>
-				<artifactId>actress-cqrs-test</artifactId>
+				<artifactId>actress-core-test</artifactId>
 				<version>${project.version}</version>
 				<scope>test</scope>
 			</dependency>

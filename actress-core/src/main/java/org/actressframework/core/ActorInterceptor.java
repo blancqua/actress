@@ -1,10 +1,10 @@
 package org.actressframework.core;
 
-import static com.google.common.collect.Maps.newHashMap;
 import static java.lang.Thread.currentThread;
 import static org.actressframework.core.common.Executors.newSingleThreadExecutor;
 import static org.slf4j.LoggerFactory.getLogger;
 
+import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
@@ -21,7 +21,7 @@ public class ActorInterceptor {
 
     private static boolean actorsEnabled = true;
 
-    private Map<Object, ExecutorService> executors = newHashMap();
+    private Map<Object, ExecutorService> executors = new HashMap<>();
 
     @Around("execution(!private * (@be.brail.sigw.common.actor.Actor *).*(..))")
     public Object doInfoLogging(final ProceedingJoinPoint joinPoint) throws Throwable {
