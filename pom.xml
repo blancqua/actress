@@ -9,14 +9,12 @@
 	<modules>
 		<module>actress-core</module>
 		<module>actress-test</module>
-		<module>actress-cqrs</module>
-		<module>actress-core-test</module>
 	</modules>
 
 	<properties>
 		<java.build.version>1.7</java.build.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<spring.version>3.2.4.RELEASE</spring.version>
+		<spring.version>4.0.0.RELEASE</spring.version>
 		<aspectj.version>1.7.3</aspectj.version>
 	</properties>
 
@@ -80,11 +78,6 @@
 				<artifactId>actress-core</artifactId>
 				<version>${project.version}</version>
 			</dependency>
-			<dependency>
-				<groupId>${project.groupId}</groupId>
-				<artifactId>actress-cqrs</artifactId>
-				<version>${project.version}</version>
-			</dependency>
 
 			<!-- MAIN FRAMEWORK -->
 			<dependency>
@@ -96,11 +89,6 @@
 				<groupId>org.aspectj</groupId>
 				<artifactId>aspectjweaver</artifactId>
 				<version>${aspectj.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>commons-lang</groupId>
-				<artifactId>commons-lang</artifactId>
-				<version>2.6</version>
 			</dependency>
 			<dependency>
 				<groupId>org.slf4j</groupId>
@@ -129,18 +117,6 @@
 			</dependency>
 
 			<!-- TEST FRAMEWORK -->
-			<dependency>
-				<groupId>${project.groupId}</groupId>
-				<artifactId>actress-test</artifactId>
-				<version>${project.version}</version>
-				<scope>test</scope>
-			</dependency>
-			<dependency>
-				<groupId>${project.groupId}</groupId>
-				<artifactId>actress-core-test</artifactId>
-				<version>${project.version}</version>
-				<scope>test</scope>
-			</dependency>
 			<dependency>
 				<groupId>junit</groupId>
 				<artifactId>junit</artifactId>
