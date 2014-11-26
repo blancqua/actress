@@ -8,9 +8,11 @@
 # eclipse
 target
 .project
-.classpath
 .settings
 
 # intellij
 .idea
 *.iml
+
+# codio
+.codio
