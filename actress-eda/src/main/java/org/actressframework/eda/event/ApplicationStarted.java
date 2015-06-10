@@ -1,4 +1,4 @@
-package org.actressframework.eda.events;
+package org.actressframework.eda.event;
 
 public class ApplicationStarted {
 
