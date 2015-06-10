@@ -2,7 +2,7 @@ package integration.org.actressframework.eda;
 
 import com.google.common.eventbus.Subscribe;
 import org.actressframework.eda.EventHandler;
-import org.actressframework.eda.events.ApplicationStarted;
+import org.actressframework.eda.event.ApplicationStarted;
 
 import javax.inject.Named;
 
