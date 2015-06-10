@@ -7,7 +7,7 @@ import javax.inject.Named;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.actressframework.eda.events.ApplicationStarted.applicationStarted;
+import static org.actressframework.eda.event.ApplicationStarted.applicationStarted;
 
 @Named(EventBus.ACTRESS_EVENT_BUS)
 public class EventBus extends AbstractBus<EventHandler> {
