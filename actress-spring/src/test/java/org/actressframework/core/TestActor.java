@@ -1,14 +1,14 @@
 package org.actressframework.core;
 
 import org.actressframework.core.test.Sleeper;
+import org.springframework.stereotype.Component;
 
-import javax.inject.Named;
 import java.util.HashMap;
 import java.util.Map;
 
 import static java.lang.Thread.currentThread;
 
-@Named @Actor
+@Component @Actor
 public class TestActor {
 
     private Map<String, Integer> callingThreads = new HashMap<>();

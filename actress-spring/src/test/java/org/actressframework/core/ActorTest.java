@@ -4,10 +4,9 @@ import org.actressframework.core.test.Assertion;
 import org.actressframework.core.test.Poller;
 import org.junit.Before;
 import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.AbstractJUnit4SpringContextTests;
-
-import javax.inject.Inject;
 
 import static java.lang.System.currentTimeMillis;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -17,7 +16,7 @@ public class ActorTest extends AbstractJUnit4SpringContextTests {
 
     private static final String TEST = "test";
 
-    @Inject
+    @Autowired
     private TestActor actor;
 
     @Before

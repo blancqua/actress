@@ -1,12 +1,10 @@
 package integration.org.actressframework.eda;
 
-import javax.inject.Named;
-
-import org.actressframework.eda.CommandHandler;
-
 import com.google.common.eventbus.Subscribe;
+import org.actressframework.eda.CommandHandler;
+import org.springframework.stereotype.Component;
 
-@Named
+@Component
 public class TestCommandHandler implements CommandHandler {
 
     private boolean commandReceived = false;

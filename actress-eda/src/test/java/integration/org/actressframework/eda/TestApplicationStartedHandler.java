@@ -3,10 +3,9 @@ package integration.org.actressframework.eda;
 import com.google.common.eventbus.Subscribe;
 import org.actressframework.eda.EventHandler;
 import org.actressframework.eda.event.ApplicationStarted;
+import org.springframework.stereotype.Component;
 
-import javax.inject.Named;
-
-@Named
+@Component
 public class TestApplicationStartedHandler implements EventHandler {
 
     private boolean applicationStarted = false;

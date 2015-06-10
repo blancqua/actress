@@ -5,8 +5,7 @@ import org.actressframework.eda.EventBus;
 import org.actressframework.eda.EventLogger;
 import org.junit.Before;
 import org.junit.Test;
-
-import javax.inject.Inject;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import static org.actressframework.core.test.Poller.aPoller;
 import static org.mockito.Mockito.spy;
@@ -14,10 +13,10 @@ import static org.mockito.Mockito.verify;
 
 public class EventLoggerIntegrationTest extends AbstractIntegrationTest {
 
-    @Inject
+    @Autowired
     private EventBus eventBus;
-    
-    @Inject
+
+    @Autowired
     private EventLogger logger;
     
     @Before

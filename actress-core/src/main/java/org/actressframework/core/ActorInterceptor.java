@@ -24,7 +24,7 @@ public class ActorInterceptor {
     private Map<Object, ExecutorService> executors = new HashMap<>();
 
     @Around("execution(!private * (@org.actressframework.core.Actor *).*(..))")
-    public Object doInfoLogging(final ProceedingJoinPoint joinPoint) throws Throwable {
+    public Object actorMethodCall(final ProceedingJoinPoint joinPoint) throws Throwable {
         if (doInActorThread(joinPoint)) {
             if (hasNoReturnValue(joinPoint)) {
                 return callNonBlocking(joinPoint);

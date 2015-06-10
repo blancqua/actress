@@ -1,8 +1,8 @@
 package org.actressframework.eda;
 
-import javax.inject.Named;
+import org.springframework.stereotype.Component;
 
-@Named
+@Component
 public class CommandLogger extends AbstractBusLogger implements CommandHandler {
 
 }

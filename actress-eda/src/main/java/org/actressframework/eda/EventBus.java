@@ -1,15 +1,14 @@
 package org.actressframework.eda;
 
 import org.springframework.beans.factory.annotation.Autowired;
-
-import javax.inject.Named;
+import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import static org.actressframework.eda.event.ApplicationStarted.applicationStarted;
 
-@Named(EventBus.ACTRESS_EVENT_BUS)
+@Component(EventBus.ACTRESS_EVENT_BUS)
 public class EventBus extends AbstractBus<EventHandler> {
 
     static final String ACTRESS_EVENT_BUS = "actress-eventBus";

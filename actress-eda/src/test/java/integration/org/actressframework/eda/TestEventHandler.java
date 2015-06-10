@@ -1,12 +1,10 @@
 package integration.org.actressframework.eda;
 
-import javax.inject.Named;
-
-import org.actressframework.eda.EventHandler;
-
 import com.google.common.eventbus.Subscribe;
+import org.actressframework.eda.EventHandler;
+import org.springframework.stereotype.Component;
 
-@Named
+@Component
 public class TestEventHandler implements EventHandler {
 
     private boolean eventReceived = false;

@@ -4,21 +4,20 @@ import org.actressframework.eda.CommandBus;
 import org.actressframework.eda.EventBus;
 import org.junit.Before;
 import org.junit.Test;
-
-import javax.inject.Inject;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class BusConfigurationIntegrationTest extends AbstractIntegrationTest {
 
-    @Inject
+    @Autowired
     private EventBus eventBus;
-    @Inject
+    @Autowired
     private CommandBus commandBus;
-    
-    @Inject
+
+    @Autowired
     private TestEventHandler eventHandler;
-    @Inject
+    @Autowired
     private TestCommandHandler commandHandler;
     
     @Before

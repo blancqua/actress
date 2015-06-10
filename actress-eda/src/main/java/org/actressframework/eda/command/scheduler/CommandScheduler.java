@@ -6,9 +6,9 @@ import org.actressframework.eda.CommandBus;
 import org.actressframework.eda.CommandHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
-import javax.inject.Inject;
-import javax.inject.Named;
 import java.util.Map;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ScheduledFuture;
@@ -17,13 +17,13 @@ import static com.google.common.collect.Maps.newHashMap;
 import static java.util.concurrent.TimeUnit.MILLISECONDS;
 import static org.actressframework.common.Executors.newSingleThreadScheduledExecutor;
 
-@Named @Actor
+@Component @Actor
 public class CommandScheduler implements CommandHandler {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(CommandScheduler.class);
     private ScheduledExecutorService scheduledExecutor = newSingleThreadScheduledExecutor(CommandScheduler.class.getSimpleName() + "-executor");
     
-    @Inject
+    @Autowired
     private CommandBus commandBus;
 
     private Map<ScheduleCommand, ScheduledFuture<?>> scheduledTasks = newHashMap();
