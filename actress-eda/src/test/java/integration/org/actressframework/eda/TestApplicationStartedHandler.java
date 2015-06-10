@@ -1,11 +1,10 @@
 package integration.org.actressframework.eda;
 
-import javax.inject.Named;
-
-import org.actressframework.eda.eda.EventHandler;
-import org.actressframework.eda.eda.events.ApplicationStarted;
-
 import com.google.common.eventbus.Subscribe;
+import org.actressframework.eda.EventHandler;
+import org.actressframework.eda.events.ApplicationStarted;
+
+import javax.inject.Named;
 
 @Named
 public class TestApplicationStartedHandler implements EventHandler {

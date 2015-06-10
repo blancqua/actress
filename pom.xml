@@ -11,6 +11,8 @@
 		<module>actress-test</module>
 		<module>actress-eda</module>
 		<module>actress-test-core</module>
+		<module>actress-spring</module>
+		<module>actress-common</module>
 	</modules>
 
 	<properties>
@@ -33,31 +35,6 @@
 						<useIncrementalCompilation>false</useIncrementalCompilation>
 					</configuration>
 				</plugin>
-				<plugin>
-					<groupId>org.codehaus.mojo</groupId>
-					<artifactId>aspectj-maven-plugin</artifactId>
-					<version>1.7</version>
-					<dependencies>
-						<dependency>
-							<groupId>org.aspectj</groupId>
-							<artifactId>aspectjtools</artifactId>
-							<version>${aspectj.version}</version>
-						</dependency>
-					</dependencies>
-					<executions>
-						<execution>
-							<phase>process-sources</phase>
-							<goals>
-								<goal>compile</goal>
-								<goal>test-compile</goal>
-							</goals>
-							<configuration>
-								<showWeaveInfo>true</showWeaveInfo>
-								<complianceLevel>${java.build.version}</complianceLevel>
-							</configuration>
-						</execution>
-					</executions>
-				</plugin>
 			</plugins>
 		</pluginManagement>
 	</build>
@@ -67,9 +44,19 @@
 			<!-- ACTRESS -->
 			<dependency>
 				<groupId>${project.groupId}</groupId>
+				<artifactId>actress-common</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>${project.groupId}</groupId>
 				<artifactId>actress-core</artifactId>
 				<version>${project.version}</version>
 			</dependency>
+            <dependency>
+				<groupId>${project.groupId}</groupId>
+                <artifactId>actress-spring</artifactId>
+				<version>${project.version}</version>
+            </dependency>
 			<dependency>
 				<groupId>${project.groupId}</groupId>
 				<artifactId>actress-eda</artifactId>
@@ -93,31 +80,37 @@
 				<groupId>org.aspectj</groupId>
 				<artifactId>aspectjrt</artifactId>
 				<version>${aspectj.version}</version>
+				<scope>provided</scope>
 			</dependency>
 			<dependency>
 				<groupId>org.aspectj</groupId>
 				<artifactId>aspectjweaver</artifactId>
 				<version>${aspectj.version}</version>
+				<scope>provided</scope>
 			</dependency>
 			<dependency>
 				<groupId>org.slf4j</groupId>
 				<artifactId>slf4j-api</artifactId>
 				<version>1.7.7</version>
-			</dependency>
-			<dependency>
-				<groupId>com.google.guava</groupId>
-				<artifactId>guava</artifactId>
-				<version>18.0</version>
+				<scope>provided</scope>
 			</dependency>
 			<dependency>
 				<groupId>javax.inject</groupId>
 				<artifactId>javax.inject</artifactId>
 				<version>1</version>
+				<scope>provided</scope>
 			</dependency>
 			<dependency>
 				<groupId>org.springframework</groupId>
 				<artifactId>spring-context</artifactId>
 				<version>${spring.version}</version>
+				<scope>provided</scope>
+			</dependency>
+			<dependency>
+				<groupId>com.google.guava</groupId>
+				<artifactId>guava</artifactId>
+				<version>18.0</version>
+				<scope>provided</scope>
 			</dependency>
 
 			<dependency>

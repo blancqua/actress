@@ -1,16 +1,16 @@
 package integration.org.actressframework.eda;
 
-import static org.actressframework.core.test.Poller.aPoller;
-import static org.mockito.Mockito.spy;
-import static org.mockito.Mockito.verify;
+import org.actressframework.core.test.Assertion;
+import org.actressframework.eda.EventBus;
+import org.actressframework.eda.EventLogger;
+import org.junit.Before;
+import org.junit.Test;
 
 import javax.inject.Inject;
 
-import org.actressframework.eda.eda.EventBus;
-import org.actressframework.eda.eda.EventLogger;
-import org.actressframework.core.test.Assertion;
-import org.junit.Before;
-import org.junit.Test;
+import static org.actressframework.core.test.Poller.aPoller;
+import static org.mockito.Mockito.spy;
+import static org.mockito.Mockito.verify;
 
 public class EventLoggerIntegrationTest extends AbstractIntegrationTest {
 
@@ -37,7 +37,7 @@ public class EventLoggerIntegrationTest extends AbstractIntegrationTest {
         aPoller().doAssert(new Assertion() {
             @Override
             public void assertion() throws Exception {
-                verify(logger).logEvent(event);
+                verify(logger).log(event);
             }
         });
     }

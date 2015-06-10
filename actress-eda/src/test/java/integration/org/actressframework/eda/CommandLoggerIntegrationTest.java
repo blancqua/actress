@@ -6,8 +6,8 @@ import static org.mockito.Mockito.verify;
 
 import javax.inject.Inject;
 
-import org.actressframework.eda.eda.CommandBus;
-import org.actressframework.eda.eda.CommandLogger;
+import org.actressframework.eda.CommandBus;
+import org.actressframework.eda.CommandLogger;
 import org.actressframework.core.test.Assertion;
 import org.junit.Before;
 import org.junit.Test;
@@ -37,7 +37,7 @@ public class CommandLoggerIntegrationTest extends AbstractIntegrationTest {
         aPoller().doAssert(new Assertion() {
             @Override
             public void assertion() throws Exception {
-                verify(logger).logCommand(command);
+                verify(logger).log(command);
             }
         });
     }

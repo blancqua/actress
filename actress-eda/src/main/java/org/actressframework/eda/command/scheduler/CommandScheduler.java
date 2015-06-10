@@ -1,23 +1,21 @@
 package org.actressframework.eda.command.scheduler;
 
-import static com.google.common.collect.Maps.newHashMap;
-import static java.util.concurrent.TimeUnit.MILLISECONDS;
-import static org.actressframework.core.common.Executors.newSingleThreadScheduledExecutor;
-
-import java.util.Map;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.ScheduledFuture;
-
-import javax.inject.Inject;
-import javax.inject.Named;
-
+import com.google.common.eventbus.Subscribe;
 import org.actressframework.core.Actor;
 import org.actressframework.eda.CommandBus;
 import org.actressframework.eda.CommandHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.google.common.eventbus.Subscribe;
+import javax.inject.Inject;
+import javax.inject.Named;
+import java.util.Map;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.ScheduledFuture;
+
+import static com.google.common.collect.Maps.newHashMap;
+import static java.util.concurrent.TimeUnit.MILLISECONDS;
+import static org.actressframework.common.Executors.newSingleThreadScheduledExecutor;
 
 @Named @Actor
 public class CommandScheduler implements CommandHandler {

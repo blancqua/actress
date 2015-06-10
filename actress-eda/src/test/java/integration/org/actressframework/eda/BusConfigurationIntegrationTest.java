@@ -1,13 +1,13 @@
 package integration.org.actressframework.eda;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.actressframework.eda.CommandBus;
+import org.actressframework.eda.EventBus;
+import org.junit.Before;
+import org.junit.Test;
 
 import javax.inject.Inject;
 
-import org.actressframework.eda.eda.CommandBus;
-import org.actressframework.eda.eda.EventBus;
-import org.junit.Before;
-import org.junit.Test;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class BusConfigurationIntegrationTest extends AbstractIntegrationTest {
 

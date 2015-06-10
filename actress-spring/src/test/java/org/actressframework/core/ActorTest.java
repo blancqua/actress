@@ -2,26 +2,27 @@ package org.actressframework.core;
 
 import org.actressframework.core.test.Assertion;
 import org.actressframework.core.test.Poller;
-import org.actressframework.core.test.Sleeper;
 import org.junit.Before;
 import org.junit.Test;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.AbstractJUnit4SpringContextTests;
 
-import java.util.HashMap;
-import java.util.Map;
+import javax.inject.Inject;
 
 import static java.lang.System.currentTimeMillis;
-import static java.lang.Thread.currentThread;
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class ActorTest {
+@ContextConfiguration(classes = ActressConfiguration.class)
+public class ActorTest extends AbstractJUnit4SpringContextTests {
 
     private static final String TEST = "test";
-    
+
+    @Inject
     private TestActor actor;
-    
+
     @Before
-    public void setUp() {
-        actor = new TestActor();
+    public void setUp() throws Exception {
+        actor.reset();
     }
 
     @Test
@@ -78,51 +79,9 @@ public class ActorTest {
         Poller.aPoller().doAssert(new Assertion() {
             @Override
             public void assertion() throws Exception {
-                assertThat(actor.callingThreads.size()).isEqualTo(1);
-                assertThat(actor.callingThreads.get("TestActor-Actor")).isEqualTo(numberOfCalls);
+                assertThat(actor.callingThreads().size()).isEqualTo(1);
+                assertThat(actor.callingThreads().get("TestActor-Actor")).isEqualTo(numberOfCalls);
             }
         });
     }
-    
-    @Actor
-    public class TestActor {
-
-        private Map<String, Integer> callingThreads = new HashMap<>();
-        
-        public void callWithoutReturnValueActorThread() {
-            augmentInThreadCalls();
-        }
-
-        public void callLongRunningProcessInActorThread() {
-            Sleeper.sleep(2000);
-        }
-
-        public void callWithInternalCallInActorThread() {
-            callWithoutReturnValueActorThread();
-        }
-        
-        void callPackageVisibleInActorThread() {
-            augmentInThreadCalls();
-        }
-
-        public void callCrashInActorThread() {
-            augmentInThreadCalls();
-            throw new RuntimeException("KABOOM");
-        }
-        
-        public String callWithReturnValueInActorThread(String returnMe) {
-            augmentInThreadCalls();
-            return returnMe;
-        }
-        
-        private synchronized void augmentInThreadCalls() {
-            Integer calls = callingThreads.get(currentThread().getName());
-            if (calls == null) {
-                calls = 0;
-            }
-            callingThreads.put(currentThread().getName(), ++calls);
-        }
-        
-    }
-    
 }
