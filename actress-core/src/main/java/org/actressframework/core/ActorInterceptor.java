@@ -21,7 +21,7 @@ public class ActorInterceptor {
 
     private static boolean actorsEnabled = true;
 
-    private Map<Object, ExecutorService> executors = new HashMap<>();
+    private Map<Object, ExecutorService> executors = new HashMap<Object, ExecutorService>();
 
     @Around("execution(!private * (@org.actressframework.core.Actor *).*(..))")
     public Object actorMethodCall(final ProceedingJoinPoint joinPoint) throws Throwable {

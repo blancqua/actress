@@ -11,7 +11,7 @@ import static java.lang.Thread.currentThread;
 @Component @Actor
 public class TestActor {
 
-    private Map<String, Integer> callingThreads = new HashMap<>();
+    private Map<String, Integer> callingThreads = new HashMap<String, Integer>();
 
     public void callWithoutReturnValueActorThread() {
         augmentInThreadCalls();
@@ -52,6 +52,6 @@ public class TestActor {
     }
 
     public void reset() {
-        callingThreads = new HashMap<>();
+        callingThreads = new HashMap<String, Integer>();
     }
 }
