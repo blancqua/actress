@@ -12,6 +12,8 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Future;
 
+import static com.google.common.collect.Iterables.filter;
+import static com.google.common.collect.Iterables.size;
 import static java.lang.Thread.currentThread;
 import static org.actressframework.common.Executors.newSingleThreadExecutor;
 import static org.slf4j.LoggerFactory.getLogger;
@@ -91,7 +93,11 @@ public class ActorInterceptor {
     }
     
     private String actorThreadName(Object target) {
-        return target.getClass().getSimpleName() + "-Actor";
+        return target.getClass().getSimpleName() + "-Actor-" + actorCount(target);
+    }
+
+    private int actorCount(Object target) {
+        return size(filter(executors.keySet(), target.getClass()));
     }
 
     public static void enableActors() {
