@@ -12,8 +12,6 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Future;
 
-import static com.google.common.collect.Iterables.filter;
-import static com.google.common.collect.Iterables.size;
 import static java.lang.Thread.currentThread;
 import static org.actressframework.common.Executors.newSingleThreadExecutor;
 import static org.slf4j.LoggerFactory.getLogger;
@@ -23,6 +21,7 @@ public class ActorInterceptor {
 
     private static boolean actorsEnabled = true;
 
+    private ActorThreadNamer actorThreadNamer = new ActorThreadNamer();
     private Map<Object, ExecutorService> executors = new HashMap<Object, ExecutorService>();
 
     @Around("execution(!private * (@org.actressframework.core.Actor *).*(..))")
@@ -93,11 +92,7 @@ public class ActorInterceptor {
     }
     
     private String actorThreadName(Object target) {
-        return target.getClass().getSimpleName() + "-Actor-" + actorCount(target);
-    }
-
-    private int actorCount(Object target) {
-        return size(filter(executors.keySet(), target.getClass()));
+        return actorThreadNamer.name(target);
     }
 
     public static void enableActors() {
