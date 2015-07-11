@@ -8,6 +8,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>actress-test-core</artifactId>
+    <name>actress-test-core</name>
 
     <dependencies>
         <dependency>
