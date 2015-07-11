@@ -5,6 +5,8 @@
     <name>actress</name>
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
+    <description>Very lightweight java actor framework</description>
+    <url>https://github.com/wblancqu/actress</url>
 
     <licenses>
         <license>
