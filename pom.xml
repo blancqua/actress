@@ -284,8 +284,7 @@
         <url>https://github.com/wblancqu/actress</url>
         <connection>scm:git:git://github.com/wblancqu/actress.git</connection>
         <developerConnection>scm:git:git@github.com:wblancqu/actress.git</developerConnection>
-      <tag>actress-1.0</tag>
-  </scm>
+    </scm>
 
     <issueManagement>
         <url>https://github.com/wblancqu/actress</url>
