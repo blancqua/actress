@@ -5,20 +5,20 @@ import org.junit.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class ActorThreadNamerTest {
+public class ThreadNamerTest {
 
-    private ActorThreadNamer actorThreadNamer;
+    private ThreadNamer threadNamer;
 
     @Before
     public void setUp() throws Exception {
-        actorThreadNamer = new ActorThreadNamer();
+        threadNamer = new ThreadNamer();
     }
 
     @Test
     public void name() {
         Object actor = new Object();
 
-        String actual = actorThreadNamer.name(actor);
+        String actual = threadNamer.name(actor);
 
         assertThat(actual).isEqualTo("Object-Actor-0");
     }
@@ -26,9 +26,9 @@ public class ActorThreadNamerTest {
     @Test
     public void name_WhenCalledTwice() {
         Object actor = new Object();
-        actorThreadNamer.name(actor);
+        threadNamer.name(actor);
 
-        String actual = actorThreadNamer.name(actor);
+        String actual = threadNamer.name(actor);
 
         assertThat(actual).isEqualTo("Object-Actor-0");
     }
@@ -37,9 +37,9 @@ public class ActorThreadNamerTest {
     public void name_WhenCalledWithOtherObjectOfSameType() {
         Object actor = new Object();
         Object secondActor = new Object();
-        actorThreadNamer.name(actor);
+        threadNamer.name(actor);
 
-        String actual = actorThreadNamer.name(secondActor);
+        String actual = threadNamer.name(secondActor);
 
         assertThat(actual).isEqualTo("Object-Actor-1");
     }

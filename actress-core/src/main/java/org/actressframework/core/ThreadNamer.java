@@ -3,7 +3,7 @@ package org.actressframework.core;
 import java.util.HashMap;
 import java.util.Map;
 
-class ActorThreadNamer {
+class ThreadNamer {
 
     private Map<Object, String> names = new HashMap<Object, String>();
 
