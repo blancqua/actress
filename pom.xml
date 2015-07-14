@@ -3,7 +3,7 @@
     <groupId>com.github.wblancqu</groupId>
     <artifactId>actress</artifactId>
     <name>actress</name>
-    <version>1.1-SNAPSHOT</version>
+    <version>1.2-SNAPSHOT</version>
     <packaging>pom</packaging>
     <description>Very lightweight java actor framework</description>
     <url>https://github.com/wblancqu/actress</url>
@@ -284,7 +284,8 @@
         <url>https://github.com/wblancqu/actress</url>
         <connection>scm:git:git://github.com/wblancqu/actress.git</connection>
         <developerConnection>scm:git:git@github.com:wblancqu/actress.git</developerConnection>
-    </scm>
+      <tag>HEAD</tag>
+  </scm>
 
     <issueManagement>
         <url>https://github.com/wblancqu/actress</url>
