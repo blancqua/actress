@@ -10,9 +10,8 @@
 
     <licenses>
         <license>
-            <name>The Apache Software License, Version 2.0</name>
-            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
-            <distribution>repo</distribution>
+            <name>GNU General Public License (GPL)</name>
+            <url>http://www.gnu.org/licenses/gpl.txt</url>
         </license>
     </licenses>
 
@@ -284,8 +283,12 @@
         <url>https://github.com/wblancqu/actress</url>
         <connection>scm:git:git://github.com/wblancqu/actress.git</connection>
         <developerConnection>scm:git:git@github.com:wblancqu/actress.git</developerConnection>
-      <tag>HEAD</tag>
-  </scm>
+    </scm>
+
+    <ciManagement>
+        <system>jenkins</system>
+        <url>http://130.211.92.124/jenkins/</url>
+    </ciManagement>
 
     <issueManagement>
         <url>https://github.com/wblancqu/actress</url>
