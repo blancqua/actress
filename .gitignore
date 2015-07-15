@@ -10,6 +10,7 @@ maven-central-deploy.log
 target
 .project
 .settings
+.classpath*
 
 # intellij
 .idea
