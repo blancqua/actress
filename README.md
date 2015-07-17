@@ -1,4 +1,4 @@
-# actress
+# actress [![Build Status](http://130.211.92.124/jenkins/buildStatus/icon?job=actress-build&style=plastic)](http://130.211.92.124/jenkins/job/actress-build/)
 ## @Actor, transform your beans to actors using AOP
 And that's it. Every method called on a bean annotated with @Actor will be executed in its proper thread. Concurrent access to the same bean will queue the method calls. Methods with return values will be executed using a Future on the same dedicated thread. All access to the state of the bean is serialized, making the bean itself thread-safe.
 
