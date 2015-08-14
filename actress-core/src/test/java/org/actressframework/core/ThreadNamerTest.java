@@ -20,7 +20,7 @@ public class ThreadNamerTest {
 
         String actual = threadNamer.name(actor);
 
-        assertThat(actual).isEqualTo("Object-Actor-0");
+        assertThat(actual).isEqualTo("Object-Actor-1");
     }
 
     @Test
@@ -30,7 +30,7 @@ public class ThreadNamerTest {
 
         String actual = threadNamer.name(actor);
 
-        assertThat(actual).isEqualTo("Object-Actor-0");
+        assertThat(actual).isEqualTo("Object-Actor-1");
     }
 
     @Test
@@ -41,6 +41,6 @@ public class ThreadNamerTest {
 
         String actual = threadNamer.name(secondActor);
 
-        assertThat(actual).isEqualTo("Object-Actor-1");
+        assertThat(actual).isEqualTo("Object-Actor-2");
     }
 }
