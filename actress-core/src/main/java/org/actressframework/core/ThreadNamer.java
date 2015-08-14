@@ -19,7 +19,7 @@ class ThreadNamer {
     }
 
     private int actorCount(Object target) {
-        int count = 0;
+        int count = 1;
         for (Object o : names.keySet()) {
             if (o.getClass().equals(target.getClass())) {
                 count++;
