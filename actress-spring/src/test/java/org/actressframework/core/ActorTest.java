@@ -79,7 +79,7 @@ public class ActorTest extends AbstractJUnit4SpringContextTests {
             @Override
             public void assertion() throws Exception {
                 assertThat(actor.callingThreads().size()).isEqualTo(1);
-                assertThat(actor.callingThreads().get("TestActor-Actor-0")).isEqualTo(numberOfCalls);
+                assertThat(actor.callingThreads().get("TestActor-Actor-1")).isEqualTo(numberOfCalls);
             }
         });
     }

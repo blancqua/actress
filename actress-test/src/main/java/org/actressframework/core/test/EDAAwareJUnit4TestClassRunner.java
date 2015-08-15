@@ -21,11 +21,8 @@ import static org.unitils.util.AnnotationUtils.getFieldsAnnotatedWith;
 
 public class EDAAwareJUnit4TestClassRunner extends UnitilsJUnit4TestClassRunner {
 
-    private Class<?> testClass;
-
     public EDAAwareJUnit4TestClassRunner(Class<?> testClass) throws InitializationError {
         super(testClass);
-        this.testClass = testClass;
     }
 
     @Override
@@ -108,7 +105,6 @@ public class EDAAwareJUnit4TestClassRunner extends UnitilsJUnit4TestClassRunner 
         private CommandBus commandBus(Object testObject) {
             return field("testCommandBus").ofType(CommandBus.class).in(testObject).get();
         }
-
 
         private EventBus eventBus(Object testObject) {
             return field("testEventBus").ofType(EventBus.class).in(testObject).get();
