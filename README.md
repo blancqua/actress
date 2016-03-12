@@ -30,7 +30,7 @@ Example for Maven:
 <dependency>
     <groupId>com.github.wblancqu</groupId>
     <artifactId>actress-core</artifactId>
-    <version>1.1</version>
+    <version>1.2</version>
 </dependency>
 ```
 
