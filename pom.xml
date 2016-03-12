@@ -286,8 +286,8 @@
     </scm>
 
     <ciManagement>
-        <system>jenkins</system>
-        <url>http://130.211.92.124/jenkins/</url>
+        <system>travis-ci</system>
+        <url>https://travis-ci.org/wblancqu/actress</url>
     </ciManagement>
 
     <issueManagement>
