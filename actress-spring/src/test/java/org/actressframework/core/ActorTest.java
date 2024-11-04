@@ -2,14 +2,16 @@ package org.actressframework.core;
 
 import org.actressframework.core.test.Assertion;
 import org.actressframework.core.test.Poller;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.AbstractJUnit4SpringContextTests;
 
 import static java.lang.System.currentTimeMillis;
-import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @ContextConfiguration(classes = ActressConfiguration.class)
 public class ActorTest extends AbstractJUnit4SpringContextTests {
@@ -19,7 +21,7 @@ public class ActorTest extends AbstractJUnit4SpringContextTests {
     @Autowired
     private TestActor actor;
 
-    @Before
+    @BeforeEach
     public void setUp() throws Exception {
         actor.reset();
     }
@@ -62,14 +64,14 @@ public class ActorTest extends AbstractJUnit4SpringContextTests {
         
         actor.callLongRunningProcessInActorThread();
         
-        assertThat(currentTimeMillis() - then).isLessThan(100);
+        assertTrue(currentTimeMillis() - then < 100);
     }
         
     @Test
     public void callWithReturnValueInActorThread() throws Exception {
         String returnValue = actor.callWithReturnValueInActorThread(TEST);
         
-        assertThat(returnValue).isEqualTo(TEST);
+        assertEquals(returnValue, TEST);
         
         assertNumberOfCallsInActorThread(1);
     }
@@ -78,8 +80,8 @@ public class ActorTest extends AbstractJUnit4SpringContextTests {
         Poller.aPoller().doAssert(new Assertion() {
             @Override
             public void assertion() throws Exception {
-                assertThat(actor.callingThreads().size()).isEqualTo(1);
-                assertThat(actor.callingThreads().get("TestActor-Actor-1")).isEqualTo(numberOfCalls);
+                assertEquals(actor.callingThreads().size(), 1);
+                assertEquals(actor.callingThreads().get("TestActor-Actor-1"), numberOfCalls);
             }
         });
     }

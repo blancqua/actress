@@ -2,11 +2,12 @@ package integration.org.actressframework.eda;
 
 import org.actressframework.eda.CommandBus;
 import org.actressframework.eda.EventBus;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class BusConfigurationIntegrationTest extends AbstractIntegrationTest {
 
@@ -20,7 +21,7 @@ public class BusConfigurationIntegrationTest extends AbstractIntegrationTest {
     @Autowired
     private TestCommandHandler commandHandler;
     
-    @Before
+    @BeforeEach
     public void setUp() {
         eventHandler.reset();
         commandHandler.reset();
@@ -30,15 +31,15 @@ public class BusConfigurationIntegrationTest extends AbstractIntegrationTest {
     public void postEvent() throws Exception {
         eventBus.post(new TestEventHandler.TestEvent());
         
-        assertThat(eventHandler.hasReceivedEvent()).isTrue();
-        assertThat(commandHandler.hasReceivedCommand()).isFalse();
+        assertTrue(eventHandler.hasReceivedEvent());
+        assertFalse(commandHandler.hasReceivedCommand());
     }
     
     @Test
     public void postCommand() throws Exception {
         commandBus.post(new TestCommandHandler.TestCommand());
         
-        assertThat(eventHandler.hasReceivedEvent()).isFalse();
-        assertThat(commandHandler.hasReceivedCommand()).isTrue();
+        assertFalse(eventHandler.hasReceivedEvent());
+        assertTrue(commandHandler.hasReceivedCommand());
     }
 }

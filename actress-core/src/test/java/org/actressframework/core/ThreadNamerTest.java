@@ -1,15 +1,15 @@
 package org.actressframework.core;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ThreadNamerTest {
 
     private ThreadNamer threadNamer;
 
-    @Before
+    @BeforeEach
     public void setUp() throws Exception {
         threadNamer = new ThreadNamer();
     }
@@ -20,7 +20,7 @@ public class ThreadNamerTest {
 
         String actual = threadNamer.name(actor);
 
-        assertThat(actual).isEqualTo("Object-Actor-1");
+        assertEquals(actual, "Object-Actor-1");
     }
 
     @Test
@@ -30,7 +30,7 @@ public class ThreadNamerTest {
 
         String actual = threadNamer.name(actor);
 
-        assertThat(actual).isEqualTo("Object-Actor-1");
+        assertEquals(actual, "Object-Actor-1");
     }
 
     @Test
@@ -41,6 +41,6 @@ public class ThreadNamerTest {
 
         String actual = threadNamer.name(secondActor);
 
-        assertThat(actual).isEqualTo("Object-Actor-2");
+        assertEquals(actual, "Object-Actor-2");
     }
 }

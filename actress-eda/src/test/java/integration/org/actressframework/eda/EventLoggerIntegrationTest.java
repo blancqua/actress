@@ -3,8 +3,8 @@ package integration.org.actressframework.eda;
 import org.actressframework.core.test.Assertion;
 import org.actressframework.eda.EventBus;
 import org.actressframework.eda.EventLogger;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import static org.actressframework.core.test.Poller.aPoller;
@@ -19,7 +19,7 @@ public class EventLoggerIntegrationTest extends AbstractIntegrationTest {
     @Autowired
     private EventLogger logger;
     
-    @Before
+    @BeforeEach
     public void setUp() throws Exception {
         eventBus.unregister(logger);
         EventLogger spy = spy(logger);

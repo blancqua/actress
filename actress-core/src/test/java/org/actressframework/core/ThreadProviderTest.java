@@ -1,10 +1,11 @@
 package org.actressframework.core;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 import java.util.concurrent.ExecutorService;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class ThreadProviderTest {
 
@@ -20,7 +21,7 @@ public class ThreadProviderTest {
 
         ExecutorService actual = provider.provide(actor);
 
-        assertThat(actual).isSameAs(actorThread);
-        assertThat(actual).isNotSameAs(otherActorThread);
+        assertSame(actual, actorThread);
+        assertNotSame(actual, otherActorThread);
     }
 }

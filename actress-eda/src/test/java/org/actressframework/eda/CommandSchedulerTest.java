@@ -4,16 +4,16 @@ import org.actressframework.core.test.Assertion;
 import org.actressframework.eda.command.scheduler.CancelScheduledCommand;
 import org.actressframework.eda.command.scheduler.CommandScheduler;
 import org.actressframework.eda.command.scheduler.ScheduleOnceCommand;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.unitils.inject.annotation.InjectIntoByType;
-import org.unitils.inject.annotation.TestedObject;
+import org.mockito.Mockito;
 
 import static java.lang.System.currentTimeMillis;
 import static org.actressframework.core.test.Poller.aPoller;
 import static org.actressframework.core.test.Sleeper.sleep;
 import static org.actressframework.eda.command.scheduler.ScheduleAtFixedRateCommand.scheduleAtFixedRate;
-import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.*;
 
 public class CommandSchedulerTest extends AbstractTest {
@@ -23,10 +23,9 @@ public class CommandSchedulerTest extends AbstractTest {
     private static final String COMMAND = "command";
     
     @Mock
-    @InjectIntoByType
     private CommandBus commandBus;
     
-    @TestedObject
+    @InjectMocks
     private CommandScheduler scheduler;
 
     @Test
@@ -41,7 +40,7 @@ public class CommandSchedulerTest extends AbstractTest {
             }
         });
         
-        assertThat(System.currentTimeMillis() - then).isGreaterThanOrEqualTo(DELAY);
+        assertTrue(System.currentTimeMillis() - then >= DELAY);
     }
     
     @Test
@@ -56,7 +55,7 @@ public class CommandSchedulerTest extends AbstractTest {
             }
         });
         
-        assertThat(System.currentTimeMillis() - then).isGreaterThanOrEqualTo(2 * DELAY);
+        assertTrue(System.currentTimeMillis() - then >= 2 * DELAY);
     }
     
     @Test
@@ -66,8 +65,8 @@ public class CommandSchedulerTest extends AbstractTest {
         scheduler.scheduleCommand(scheduleCommand);
         scheduler.cancelSchedule(CancelScheduledCommand.cancel(scheduleCommand));
         sleep(DELAY * 3 / 2);
-        
-        verifyZeroInteractions(commandBus);
+
+        verifyNoInteractions(commandBus);
     }
     
     @Test
@@ -90,7 +89,7 @@ public class CommandSchedulerTest extends AbstractTest {
         scheduler.cancelSchedule(CancelScheduledCommand.cancel(scheduleCommand));
         sleep(DELAY * 3 / 2);
         
-        verifyZeroInteractions(commandBus);
+        verifyNoInteractions(commandBus);
     }
     
     @Test
@@ -102,6 +101,6 @@ public class CommandSchedulerTest extends AbstractTest {
         scheduler.cancelSchedule(CancelScheduledCommand.cancel(scheduleCommand));
         sleep(DELAY * 3 / 2);
         
-        verifyZeroInteractions(commandBus);
+        verifyNoInteractions(commandBus);
     }
 }

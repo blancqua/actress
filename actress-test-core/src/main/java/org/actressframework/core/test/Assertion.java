@@ -1,6 +1,7 @@
 package org.actressframework.core.test;
 
-import org.assertj.core.api.Assertions;
+
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public abstract class Assertion {
 
@@ -29,7 +30,7 @@ public abstract class Assertion {
 
             @Override
             public void assertion() throws Exception {
-                Assertions.assertThat(condition.validate()).isTrue();
+                assertTrue(condition.validate());
             }
         };
     }

@@ -1,10 +1,10 @@
 package org.actressframework.core.test;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import static org.actressframework.core.test.Poller.aPoller;
 import static org.actressframework.core.test.Sleeper.sleep;
-import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class PollerTest {
 
@@ -37,7 +37,7 @@ public class PollerTest {
         return new Assertion() {
             @Override
             public void assertion() throws Exception {
-                assertThat(completed).isTrue();
+                assertTrue(completed);
             }
         };
     }

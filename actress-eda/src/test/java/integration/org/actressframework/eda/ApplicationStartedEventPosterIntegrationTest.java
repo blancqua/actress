@@ -1,9 +1,10 @@
 package integration.org.actressframework.eda;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class ApplicationStartedEventPosterIntegrationTest extends AbstractIntegrationTest {
     
@@ -12,7 +13,7 @@ public class ApplicationStartedEventPosterIntegrationTest extends AbstractIntegr
     
     @Test
     public void applicationStarted() throws Exception {
-        assertThat(handler.hasReceivedApplicationStartedEvent()).isTrue();
+        assertTrue(handler.hasReceivedApplicationStartedEvent());
     }
 
 }

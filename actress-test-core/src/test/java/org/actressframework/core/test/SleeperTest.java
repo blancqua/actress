@@ -1,9 +1,9 @@
 package org.actressframework.core.test;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import static java.lang.System.currentTimeMillis;
-import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class SleeperTest {
 
@@ -13,7 +13,7 @@ public class SleeperTest {
     public void sleep() throws Exception {
         long then = currentTimeMillis();
         Sleeper.sleep(TIME);
-        assertThat(currentTimeMillis() - then).isGreaterThanOrEqualTo(TIME);
+        assertTrue(currentTimeMillis() - then >= TIME);
     }
     
 }
